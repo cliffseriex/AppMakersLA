@@ -1,9 +1,17 @@
 # Local .terraform directories
 **/.terraform/*
 
-# .tfstate files
+# Terraform state files
 *.tfstate
 *.tfstate.*
+*.tfstate.backup
+*.tfstate.lock.info
+
+# Ignore the entire .terraform directory
+.terraform/
+# Ignore the Terraform lockfile
+.terraform.lock.hcl
+
 
 # Crash log files
 crash.log
@@ -35,3 +43,36 @@ override.tf.json
 # Ignore CLI configuration files
 .terraformrc
 terraform.rc
+
+
+# Crash log files
+crash.log
+
+# Logs
+*.log
+
+# Backup files
+*.bak
+
+# Ignored Terraform files
+*gitignore*.tf
+
+# Ignore Mac .DS_Store files
+.DS_Store
+
+# Ignored vscode files
+.vscode/
+
+# Ignore JSON files in specific directories
+operations/automation-script/*.json
+operations/sentinel-policies-scripts/*.json
+operations/variable-scripts/*.json
+
+# Sentinel runtime directory
+.sentinel
+
+# Ignore SSH Keys
+*.pem
+
+# Ignore all contents in .vagrant (if used)
+.vagrant/
