@@ -148,18 +148,4 @@ aws secretsmanager create-secret \
 [ Deploy Lambda ] → [ Upload ZIP to S3 ] → [ Update Lambda Code ]
 ```
 
----
-
-# **✅ Summary**
-🔹 **Terraform Steps**:
-1. **Create S3 bucket & Upload Lambda files**
-2. **Deploy Network** (`tf-aws-infra/ue1/stag/network`)
-3. **Deploy RDS** (`tf-aws-infra/ue1/stag/rds`)
-4. **Update `DB_HOST` in Lambda**
-5. **Create AWS Secrets (`db_password`, `sentry_dsn`)**
-6. **Deploy Lambda & API Gateway** (`tf-aws-infra/ue1/stag/lambda`)
-
-🔹 **GitHub Actions Automates**:
-1. **Frontend Deployment (S3 + CloudFront)**
-2. **Lambda Deployment (Python Packages, ZIP, S3, Update Lambda)**
 
