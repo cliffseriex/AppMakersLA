@@ -23,7 +23,7 @@ terraform {
 data "aws_vpc" "vpc-ue1" {
   filter {
     name   = "tag:Name"
-    values = ["vpc-ue1-mf"]
+    values = ["vpc-ue1"]
   }
 }
 
@@ -48,10 +48,6 @@ data "aws_subnet" "stag_private_2" {
   }
 }
 
-data "aws_ssm_parameter" "db_password" {
-  name = "/app/staging/db_password"
-  with_decryption = true
-}
 
 data "aws_secretsmanager_secret_version" "my_secret_version" {
   secret_id = "db_password"  

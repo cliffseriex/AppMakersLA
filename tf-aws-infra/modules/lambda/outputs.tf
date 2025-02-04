@@ -1,9 +1,10 @@
-output "lambda_arn" {
-  description = "The ARN of the Lambda function"
-  value       = aws_lambda_function.lambda.arn
+
+output "db_migration_lambda_arn" {
+  description = "The ARN of the database migration Lambda"
+  value       = aws_lambda_function.db_migration_lambda.arn
 }
 
-output "lambda_name" {
-  description = "The name of the Lambda function"
-  value       = aws_lambda_function.lambda.function_name
+output "app_lambda_arn" {
+  description = "The ARN of the application Lambda"
+  value       = aws_lambda_function.app_lambda.arn
 }

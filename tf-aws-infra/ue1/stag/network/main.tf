@@ -36,7 +36,7 @@ locals {
 
 module "vpc" {
   source              = "../../../modules/network/vpc" 
-  vpc_name            = "vpc-ue1-appmakers"            
+  vpc_name            = "vpc-ue1"            
   vpc_cidr            = var.vpc_cidr
   public_subnet_cidrs = var.public_subnet_cidrs
   private_subnet_cidrs = var.private_subnet_cidrs
@@ -78,8 +78,24 @@ module "route_tables" {
   }
 }
 
+module "lambda_security_group" {
+  source  = "../../../modules/network/security_group"
+  name    = "lambda-sg"
+  vpc_id  = module.vpc.vpc_id
+
+  allowed_cidr_blocks = [
+    module.vpc.vpc_cidr  
+  ]
+}
+
+
+
 output "vpc_id" {
   value = module.vpc.vpc_id
+}
+
+output "vpc_cidr" {
+  value = module.vpc.vpc_cidr
 }
 
 output "public_subnets" {
@@ -88,5 +104,10 @@ output "public_subnets" {
 
 output "private_subnets" {
   value = module.vpc.private_subnets
+}
+
+output "lambda_security_group_id" {
+  description = "The security group ID for Lambda"
+  value       = module.lambda_security_group.security_group_id
 }
 
