@@ -98,7 +98,7 @@ module "lambda" {
     DB_HOST     = "appmakers.cnwwewoekns0.us-east-1.rds.amazonaws.com"
     DB_NAME     = "appmakers"
     DB_USER     = "appmakers"
-    DB_PASSWORD = jsondecode(data.aws_secretsmanager_secret_version.my_secret_version.secret_string)["s"]
+    DB_PASSWORD = jsondecode(data.aws_secretsmanager_secret_version.my_secret_version.secret_string)["db_password"]
     API_URL = module.api_gateway.stage_invoke_url
     SENTRY_DSN = "https://c7adb93db107ff22e48d501918bba88e@o4508728666685440.ingest.us.sentry.io/4508728671862784"
   }
